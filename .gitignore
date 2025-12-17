@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Bun
+bun.lockb
+
+# Better Auth
+.better-auth/
