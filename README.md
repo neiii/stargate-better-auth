@@ -1,4 +1,4 @@
-# star-pay
+# ⭐ Stargate 
 
 A Better Auth plugin that gates application access based on GitHub repository stars.
 
