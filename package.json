@@ -1,34 +1,25 @@
 {
-  "name": "star-pay",
-  "module": "src/server.ts",
+  "name": "github-star-gate",
+  "version": "0.1.0",
+  "description": "Better Auth plugin for GitHub star-gated access control",
   "type": "module",
-  "private": true,
   "scripts": {
-    "dev": "bun --hot src/server.ts",
-    "start": "bun src/server.ts",
-    "db:generate": "bunx @better-auth/cli generate",
-    "db:migrate": "bunx @better-auth/cli migrate",
-    "typecheck": "bunx tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "test": "vitest run",
     "test:watch": "vitest",
     "ci": "bun run lint && bun run typecheck && bun run test",
-    "build": "echo 'Build step placeholder - add tsup when publishing'"
+    "build": "tsup"
   },
-  "dependencies": {
-    "better-auth": "^1.2.0",
-    "hono": "^4.6.14",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "zod": "^3.23.8"
+  "peerDependencies": {
+    "better-auth": "^1.2.0"
   },
   "devDependencies": {
-    "@better-auth/cli": "^1.2.0",
     "@types/bun": "latest",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "better-auth": "^1.2.0",
     "oxlint": "^0.16.1",
+    "tsup": "^8.3.5",
     "typescript": "^5.6.3",
     "vitest": "^2.1.0"
   }
