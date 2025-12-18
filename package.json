@@ -1,5 +1,5 @@
 {
-  "name": "github-star-gate",
+  "name": "stargate-better-auth",
   "version": "0.1.0",
   "description": "Better Auth plugin for GitHub star-gated access control",
   "type": "module",

@@ -1,18 +1,18 @@
 {
-  "name": "@d0x/github-star-gate",
+  "name": "@d0x/stargate-better-auth",
   "version": "0.1.0",
   "exports": {
-    ".": "./src/plugins/github-star-gate/index.ts",
-    "./client": "./src/plugins/github-star-gate/client.ts"
+    ".": "./src/plugins/stargate-better-auth/index.ts",
+    "./client": "./src/plugins/stargate-better-auth/client.ts"
   },
   "publish": {
     "include": [
       "LICENSE",
       "README.md",
-      "src/plugins/github-star-gate/**/*.ts"
+      "src/plugins/stargate-better-auth/**/*.ts"
     ],
     "exclude": [
-      "src/plugins/github-star-gate/__tests__"
+      "src/plugins/stargate-better-auth/__tests__"
     ]
   }
 }

@@ -258,7 +258,7 @@ export class GitHubStarVerifier {
 
   private log(message: string): void {
     if (this.options.enableLogging === true) {
-      console.log(`[github-star-gate] ${message}`);
+      console.log(`[stargate-better-auth] ${message}`);
     }
   }
 }

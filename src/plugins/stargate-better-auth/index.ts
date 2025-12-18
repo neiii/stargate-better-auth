@@ -12,7 +12,7 @@ export { starGateSchema } from "./schema";
 export const githubStarGate = (options: GitHubStarGateOptions): BetterAuthPlugin => {
   if (!options.repository && !options.repositories) {
     throw new Error(
-      "[github-star-gate] Either 'repository' or 'repositories' must be provided"
+      "[stargate-better-auth] Either 'repository' or 'repositories' must be provided"
     );
   }
 
@@ -21,12 +21,12 @@ export const githubStarGate = (options: GitHubStarGateOptions): BetterAuthPlugin
 
   const log = (message: string) => {
     if (options.enableLogging === true) {
-      console.log(`[github-star-gate] ${message}`);
+      console.log(`[stargate-better-auth] ${message}`);
     }
   };
 
   return {
-    id: "github-star-gate",
+    id: "stargate-better-auth",
 
     schema: starGateSchema,
 

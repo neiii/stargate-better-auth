@@ -1,26 +1,21 @@
-# github-star-gate
+# ⭐ Stargate for Better Auth 
 
 [![CI](https://github.com/neiii/stargate-better-auth/actions/workflows/ci.yml/badge.svg)](https://github.com/neiii/stargate-better-auth/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/github-star-gate.svg)](https://www.npmjs.com/package/github-star-gate)
+[![npm version](https://img.shields.io/npm/v/stargate-better-auth.svg)](https://www.npmjs.com/package/stargate-better-auth)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A [Better Auth](https://github.com/better-auth/better-auth) plugin that gates application access based on GitHub repository stars.
 
-## Why Star Gate?
-
-- **Growth hack**: Incentivize users to star your repo in exchange for access
-- **Community building**: Create exclusive features for supporters
-- **Lightweight**: No external services, just GitHub's API
-- **Flexible**: Configurable caching, grace periods, and failure modes
+Gate access to Better Auth resources based on whether the user has starred a repository. ⭐
 
 ## Installation
 
 ```bash
-npm install github-star-gate
+npm install stargate-better-auth
 # or
-bun add github-star-gate
+bun add stargate-better-auth
 # or
-pnpm add github-star-gate
+pnpm add stargate-better-auth
 ```
 
 ## Requirements
@@ -34,7 +29,7 @@ pnpm add github-star-gate
 
 ```typescript
 import { betterAuth } from "better-auth";
-import { githubStarGate } from "github-star-gate";
+import { githubStarGate } from "stargate-better-auth";
 
 export const auth = betterAuth({
   socialProviders: {
@@ -55,7 +50,7 @@ export const auth = betterAuth({
 
 ```typescript
 import { createAuthClient } from "better-auth/client";
-import { githubStarGateClient } from "github-star-gate/client";
+import { githubStarGateClient } from "stargate-better-auth/client";
 
 const client = createAuthClient({
   plugins: [githubStarGateClient()],

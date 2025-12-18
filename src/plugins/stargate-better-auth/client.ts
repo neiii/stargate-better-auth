@@ -11,7 +11,7 @@ type RefreshResponse = {
 
 export const githubStarGateClient = (): BetterAuthClientPlugin => {
   return {
-    id: "github-star-gate",
+    id: "stargate-better-auth",
     $InferServerPlugin: {} as ReturnType<typeof githubStarGate>,
 
     getActions: ($fetch: any) => ({
