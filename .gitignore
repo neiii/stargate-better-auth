@@ -29,7 +29,7 @@ npm-debug.log*
 Thumbs.db
 
 # Bun
-bun.lockb
+# Note: bun.lock SHOULD be committed for reproducible builds
 
 # Better Auth
 .better-auth/
