@@ -5,7 +5,7 @@ A Better Auth plugin that gates access based on GitHub repository stars.
 ## Installation
 
 ```bash
-npm install github-star-gate
+bun install github-star-gate
 ```
 
 ## Quick Start
