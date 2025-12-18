@@ -3,6 +3,34 @@
   "version": "0.1.0",
   "description": "Better Auth plugin for GitHub star-gated access control",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./client": {
+      "import": {
+        "types": "./dist/client.d.ts",
+        "default": "./dist/client.js"
+      },
+      "require": {
+        "types": "./dist/client.d.cts",
+        "default": "./dist/client.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "oxlint",
@@ -10,8 +38,29 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "ci": "bun run lint && bun run typecheck && bun run test",
-    "build": "tsup"
+    "build": "tsup",
+    "prepublishOnly": "bun run ci && bun run build"
   },
+  "keywords": [
+    "better-auth",
+    "auth",
+    "authentication",
+    "github",
+    "star",
+    "gate",
+    "access-control",
+    "plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/github-star-gate"
+  },
+  "bugs": {
+    "url": "https://github.com/user/github-star-gate/issues"
+  },
+  "homepage": "https://github.com/user/github-star-gate#readme",
   "peerDependencies": {
     "better-auth": "^1.2.0"
   },
