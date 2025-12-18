@@ -9,7 +9,7 @@ type RefreshResponse = {
   error?: string;
 };
 
-export const githubStarGateClient = () => {
+export const githubStarGateClient = (): BetterAuthClientPlugin => {
   return {
     id: "github-star-gate",
     $InferServerPlugin: {} as ReturnType<typeof githubStarGate>,

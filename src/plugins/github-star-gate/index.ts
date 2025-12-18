@@ -9,7 +9,7 @@ import { GitHubStarVerifier } from "./verification";
 export * from "./types";
 export { starGateSchema } from "./schema";
 
-export const githubStarGate = (options: GitHubStarGateOptions) => {
+export const githubStarGate = (options: GitHubStarGateOptions): BetterAuthPlugin => {
   if (!options.repository && !options.repositories) {
     throw new Error(
       "[github-star-gate] Either 'repository' or 'repositories' must be provided"

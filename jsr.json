@@ -1,0 +1,18 @@
+{
+  "name": "@d0x/github-star-gate",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./src/plugins/github-star-gate/index.ts",
+    "./client": "./src/plugins/github-star-gate/client.ts"
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/plugins/github-star-gate/**/*.ts"
+    ],
+    "exclude": [
+      "src/plugins/github-star-gate/__tests__"
+    ]
+  }
+}
