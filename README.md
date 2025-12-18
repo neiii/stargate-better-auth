@@ -4,9 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/stargate-better-auth.svg)](https://www.npmjs.com/package/stargate-better-auth)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A [Better Auth](https://github.com/better-auth/better-auth) plugin that gates application access based on GitHub repository stars.
-
-Gate access to Better Auth resources based on whether the user has starred a repository. ⭐
+Gate access to [Better Auth](https://github.com/better-auth/better-auth) resources based on whether the user has starred a repository. ⭐
 
 ## Installation
 
