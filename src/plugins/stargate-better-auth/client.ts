@@ -2,6 +2,7 @@ import type { BetterAuthClientPlugin } from "better-auth/client";
 import type { StarStatusResponse } from "./types";
 import type { githubStarGate } from "./index";
 
+/** Response from the refresh endpoint. */
 type RefreshResponse = {
   hasStarred: boolean;
   repository: string;
@@ -9,6 +10,10 @@ type RefreshResponse = {
   error?: string;
 };
 
+/**
+ * Client plugin for star gate. Adds `starGate.checkStarStatus()` and
+ * `starGate.refreshStarStatus()` methods to the auth client.
+ */
 export const githubStarGateClient = (): BetterAuthClientPlugin => {
   return {
     id: "stargate-better-auth",

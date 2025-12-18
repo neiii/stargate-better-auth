@@ -1,3 +1,4 @@
+/** GitHub account as stored by Better Auth. */
 export interface GitHubAccount {
   id: string;
   userId: string;
@@ -9,6 +10,7 @@ export interface GitHubAccount {
   accessTokenExpiresAt?: Date;
 }
 
+/** Session with star gate fields added. */
 export interface StarGateSession {
   id: string;
   userId: string;
@@ -52,74 +54,49 @@ export interface BetterAuthAdapter {
   }): Promise<void>;
 }
 
+/**
+ * Strategy for handling access when a user un-stars:
+ * - `immediate`: Revoke access on next check
+ * - `timed`: Allow access for a configured duration after un-starring
+ * - `never`: Once granted, never revoke (until session expires)
+ */
 export type GracePeriodStrategy = "immediate" | "timed" | "never";
 
+/** Repository specification for star checking. */
 export interface RepositoryRequirement {
   owner: string;
   repo: string;
   displayName?: string;
 }
 
+/** Configuration options for the star gate plugin. */
 export interface GitHubStarGateOptions {
-  /**
-   * Repository to check for stars
-   * Can be a string "owner/repo" or a RepositoryRequirement object
-   */
+  /** Repository to check, either as `"owner/repo"` string or object. */
   repository: string | RepositoryRequirement;
 
-  /**
-   * Future: Support for multiple repositories
-   * When implemented, will allow requiring stars on multiple repos
-   */
+  /** Multiple repositories (not yet implemented). */
   repositories?: {
     items: RepositoryRequirement[];
     logic: "ALL" | "ANY";
   };
 
-  /**
-   * How long to cache star verification results (in minutes)
-   * @default 15
-   */
+  /** Cache duration in minutes. @default 15 */
   cacheDuration?: number;
 
-  /**
-   * What to do when GitHub API fails
-   * - "allow": Grant access anyway (better UX)
-   * - "deny": Deny access (more secure)
-   * @default "allow"
-   */
+  /** Behavior on GitHub API failure. @default "allow" */
   onApiFailure?: "allow" | "deny";
 
-  /**
-   * Grace period configuration
-   * Controls what happens when a user un-stars after being granted access
-   */
+  /** Grace period when user un-stars after access was granted. */
   gracePeriod?: {
-    /**
-     * Strategy for handling un-stars
-     * - "immediate": Revoke access on next verification
-     * - "timed": Allow continued access for duration seconds
-     * - "never": Once granted, never revoke (until session expires)
-     * @default "immediate"
-     */
     strategy: GracePeriodStrategy;
-    
-    /**
-     * Duration in seconds (only used when strategy is "timed")
-     * @default 3600 (1 hour)
-     */
+    /** Duration in seconds (for `"timed"` strategy). @default 3600 */
     duration?: number;
   };
 
-  /**
-   * Enable console logging for debugging
-   * @default true in development
-   */
+  /** Enable debug logging. */
   enableLogging?: boolean;
 
-  /**
-   * Custom error messages for various scenarios
-   */
+  /** Custom error messages. */
   customErrorMessages?: {
     notStarred?: string;
     apiFailure?: string;
@@ -127,6 +104,7 @@ export interface GitHubStarGateOptions {
   };
 }
 
+/** Cached star verification record stored in the database. */
 export interface StarVerification {
   id: string;
   userId: string;
@@ -148,6 +126,7 @@ export interface SessionWithStarAccess {
   gracePeriodEndsAt?: Date;
 }
 
+/** Result of a star verification check. */
 export interface VerificationResult {
   hasStarred: boolean;
   cached: boolean;
@@ -155,6 +134,7 @@ export interface VerificationResult {
   requiresReauth?: boolean;
 }
 
+/** Response from the `/star-gate/status` endpoint. */
 export interface StarStatusResponse {
   hasStarred: boolean;
   lastChecked?: Date;

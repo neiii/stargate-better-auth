@@ -1,3 +1,4 @@
+/** Database schema additions for the star gate plugin. */
 export const starGateSchema = {
   starVerification: {
     fields: {

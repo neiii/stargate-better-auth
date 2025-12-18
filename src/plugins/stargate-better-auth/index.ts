@@ -1,3 +1,38 @@
+/**
+ * @module
+ *
+ * A Better Auth plugin that gates access based on whether users have starred
+ * a GitHub repository. Useful for open source projects that want to encourage
+ * stars in exchange for access to premium features or early releases.
+ *
+ * @example Server setup
+ * ```typescript
+ * import { betterAuth } from "better-auth";
+ * import { githubStarGate } from "@d0x/stargate-better-auth";
+ *
+ * export const auth = betterAuth({
+ *   plugins: [
+ *     githubStarGate({
+ *       repository: "owner/repo",
+ *       cacheDuration: 15,
+ *     }),
+ *   ],
+ * });
+ * ```
+ *
+ * @example Client usage
+ * ```typescript
+ * import { createAuthClient } from "better-auth/client";
+ * import { githubStarGateClient } from "@d0x/stargate-better-auth/client";
+ *
+ * const client = createAuthClient({
+ *   plugins: [githubStarGateClient()],
+ * });
+ *
+ * const { hasStarred } = await client.starGate.checkStarStatus();
+ * ```
+ */
+
 import type { BetterAuthPlugin } from "better-auth";
 import { createAuthEndpoint, createAuthMiddleware, getSessionFromCtx } from "better-auth/api";
 import { APIError } from "better-auth/api";
@@ -9,6 +44,17 @@ import { GitHubStarVerifier } from "./verification";
 export * from "./types";
 export { starGateSchema } from "./schema";
 
+/**
+ * Creates a Better Auth plugin that requires users to star a GitHub repository
+ * before granting access.
+ *
+ * The plugin verifies star status on sign-in and caches the result. It adds
+ * two endpoints: `/star-gate/status` for checking current status and
+ * `/star-gate/refresh` for forcing a re-check.
+ *
+ * @param options - Plugin configuration
+ * @returns A Better Auth plugin
+ */
 export const githubStarGate = (options: GitHubStarGateOptions): BetterAuthPlugin => {
   if (!options.repository && !options.repositories) {
     throw new Error(
