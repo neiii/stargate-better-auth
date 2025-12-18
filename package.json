@@ -29,7 +29,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -51,16 +53,16 @@
     "access-control",
     "plugin"
   ],
-  "author": "",
+  "author": "d0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/github-star-gate"
+    "url": "https://github.com/neiii/stargate-better-auth"
   },
   "bugs": {
-    "url": "https://github.com/user/github-star-gate/issues"
+    "url": "https://github.com/neiii/stargate-better-auth/issues"
   },
-  "homepage": "https://github.com/user/github-star-gate#readme",
+  "homepage": "https://github.com/neiii/stargate-better-auth#readme",
   "peerDependencies": {
     "better-auth": "^1.2.0"
   },
